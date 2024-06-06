@@ -1,4 +1,4 @@
-import logoDh from "../assets/img/logo-dh.png";
+import logoDh from "../../public/img/logo-dh.png";
 const iconStyle = {
     "font-size": "1.2rem",
     "color": "cornflowerblue"
