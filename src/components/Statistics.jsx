@@ -1,60 +1,33 @@
-const iconStyleBlue = {
-    "font-size": "2.5rem",
-    "color": "cornflowerblue"
-}
-const iconStyleOrange = {
-    "font-size": "2.5rem",
-    "color": "orange"
-}
+import PropTypes from 'prop-types'; //ES6
+import Stats from './Stats.jsx';
 
-const iconStyleGreen = {
-    "font-size": "2.5rem",
-    "color": "green"
-}
 
-function Statistics() {
+function Statistics(props) {
     return(
         
         <section className="content">
-        <h2 className="mt-3">Estadísticas</h2>
-        <div className="info-boxes">
+            <h2 className="mt-3">Estadísticas</h2>
+            <div className="info-boxes">
 
-            <div className="info-box">
-                <div className="box-icon">
-                    <i className="bi bi-film" style={iconStyleBlue}></i>
-                </div>
+                {props.metricsData.map((stats, i) => (       //metricsData es un array , stats= elemento actual que se esta usando del array, i= indice del elemento actual.
+                    <Stats
+                        key={stats.value+i}
+                        icon={stats.icon}
+                        icon_color={stats.icon_color}
+                        value={stats.value}
+                        title={stats.title}
+                    />
+                ))}
 
-                <div className="box-content">
-                    <span className="big">15</span>
-                    Cantidad de estrenos
-                </div>
             </div>
-
-            <div className="info-box">
-                <div className="box-icon">
-                    <i className="bi bi-tags-fill" style={iconStyleOrange}></i>
-                </div>
-
-                <div className="box-content">
-                    <span className="big">12</span>
-                    Categorías
-                </div>
-            </div>
-
-            <div className="info-box active">
-                <div className="box-icon">
-                    <i className="bi bi-currency-dollar" style={iconStyleGreen}></i>
-                </div>
-
-                <div className="box-content">
-                    <span className="big">$ 489.567</span>
-                    Total ventas
-                </div>
-            </div>
-        </div>
-    </section>
-        
+        </section>
     )
 }
+
+    Statistics.propTypes= {
+        metricsData: PropTypes.array.isRequired   // prop llamada metricsData que debería ser de tipo array + isRequired= Si metricsData no se proporciona o no es un array, se lanzará una advertencia.
+    };
+        
+
 
 export default Statistics;
