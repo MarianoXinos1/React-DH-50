@@ -8,9 +8,9 @@ function Statistics(props) {
         <section className="content">
             <h2 className="mt-3">Estadísticas</h2>
             <div className="info-boxes">
-
+                                                            
                 {props.metricsData.map((stats, i) => (       //metricsData es un array , stats= elemento actual que se esta usando del array, i= indice del elemento actual.
-                    <Stats
+                    <Stats                                   //props.metricsData.map= el props es cuando viene la variable metricsData de otro componente (padre).
                         key={stats.value+i}
                         icon={stats.icon}
                         icon_color={stats.icon_color}

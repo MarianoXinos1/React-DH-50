@@ -6,6 +6,7 @@ import Statistics from "./Statistics";
 
 
 function ContentWrap() {
+    
     const metricsData = [
         {
             icon: "bi bi-film",
